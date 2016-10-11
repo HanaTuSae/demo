@@ -92,19 +92,18 @@
 					jsonp:'callback',
 					jsonpCallback:"callback",
 					success:function(data){
-						//if(data){
+						
 						var d=data.AS.Results[0].Suggests;
 						var html='';
 						$(d).each(function(index,value){
 							html+='<li>'+$(value).attr('Txt')+'</li>';
 						});
 						$("#search-ul").html(html);
-						console.log(d);
 						$('.search-suggtion').css({
 							'top':$('.search-warp').offset().top+$('.search-warp').outerHeight(),
 							'left':$('.search-warp').offset().left,
 						}).show();
-					//}
+					
 				}
 				});
 		}

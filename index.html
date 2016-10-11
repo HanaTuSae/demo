@@ -15,12 +15,12 @@
 			margin: 0 auto;
 			height: 720px;
 			width: 98%;
-			background: url(//img.mukewang.com/52da5e7d0001c0f813660768.jpg) no-repeat;
+			background: url(http://img.mukewang.com/52da5e7d0001c0f813660768.jpg) no-repeat;
 			background-size: cover;
 		}
 		.logo{
 		    float:left;
-			background: url(//img.mukewang.com/52da5e530001eea901070053.jpg) no-repeat;
+			background: url(http://img.mukewang.com/52da5e530001eea901070053.jpg) no-repeat;
 			margin: -4px 18px 0 0;
 			height: 53px;
 			width: 107px;
@@ -46,7 +46,7 @@
 			height: 29px;
 			width: 29px;
 			outline: none;
-			background: transparent url(//img.mukewang.com/52da5df800012b1e02220137.jpg) no-repeat -30px -107px;
+			background: transparent url(http://img.mukewang.com/52da5df800012b1e02220137.jpg) no-repeat -30px -107px;
 			border: 0;
 		}
 		.search-box{
@@ -78,7 +78,7 @@
             text-decoration: underline;
         } 
 	</style>
-	<script src="//libs.baidu.com/jquery/1.10.2/jquery.js"></script>
+	<script src="http://libs.baidu.com/jquery/1.10.2/jquery.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$('.search-input').keyup(function(){
@@ -87,7 +87,7 @@
 				$.ajax({
 					async: false,
 					type:'GET',
-					url:'//api.bing.com/qsonhs.aspx?type=cb&cb=callback&q='+text,
+					url:'http://api.bing.com/qsonhs.aspx?type=cb&cb=callback&q='+text,
 					dataType:'jsonp',
 					jsonp:'callback',
 					jsonpCallback:"callback",
@@ -115,7 +115,7 @@
 			});
 			$(document).delegate('li','click',function(){
 				var text=$(this).text();
-				location.href='//cn.bing.com/search?q='+text;
+				location.href='http://cn.bing.com/search?q='+text;
 			});
 		});
 	</script>

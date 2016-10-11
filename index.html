@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>bing search</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<style type="text/css">
+	*{
+		margin:0;
+		padding: 0;
+	}
+		body{background-color: #333;}
+		.bg-div{
+			position:relative;
+			text-align:center;
+			margin: 0 auto;
+			height: 720px;
+			width: 98%;
+			background: url(http://img.mukewang.com/52da5e7d0001c0f813660768.jpg) no-repeat;
+			background-size: cover;
+		}
+		.logo{
+		    float:left;
+			background: url(http://img.mukewang.com/52da5e530001eea901070053.jpg) no-repeat;
+			margin: -4px 18px 0 0;
+			height: 53px;
+			width: 107px;
+		}
+		.search-warp{
+		    float:left;
+			background-color:#fff;
+			width:407px;
+			padding:5px;
+		}
+		.search-input{
+			float:left;
+			border: 0;
+			font-size: 100%;
+			width: 375px;
+			outline: none;/**/
+			height:25px;
+			line-height:25px;
+		}
+		.search-submit{
+			float:left;
+			cursor:pointer;
+			height: 29px;
+			width: 29px;
+			outline: none;
+			background: transparent url(http://img.mukewang.com/52da5df800012b1e02220137.jpg) no-repeat -30px -107px;
+			border: 0;
+		}
+		.search-box{
+			position:absolute;
+			top:40%;
+			left:33%;
+		}
+		.search-suggtion{
+			display: none;
+			width:416px;
+			background-color: white;
+            position:absolute;
+            border-width:1px;
+            border-style:solid;
+            border-color: #999;
+		}
+		#search-ul{
+			list-style: none;
+		}
+		#search-ul li{
+			padding: 3px;
+			line-height: 25px;
+			list-style: none;
+			font-size: 14px;
+			color:#777;
+			cursor: pointer;
+		}
+		#search-ul li:hover{
+            text-decoration: underline;
+        } 
+	</style>
+	<script src="http://libs.baidu.com/jquery/1.10.2/jquery.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('.search-input').keyup(function(){
+				var text=$('.search-input').val();
+				if(text){
+				$.ajax({
+					async: false,
+					type:'GET',
+					url:'http://api.bing.com/qsonhs.aspx?type=cb&cb=callback&q='+text,
+					dataType:'jsonp',
+					jsonp:'callback',
+					jsonpCallback:"callback",
+					success:function(data){
+						//if(data){
+						var d=data.AS.Results[0].Suggests;
+						var html='';
+						$(d).each(function(index,value){
+							html+='<li>'+$(value).attr('Txt')+'</li>';
+						});
+						$("#search-ul").html(html);
+						console.log(d);
+						$('.search-suggtion').css({
+							'top':$('.search-warp').offset().top+$('.search-warp').outerHeight(),
+							'left':$('.search-warp').offset().left,
+						}).show();
+					//}
+				}
+				});
+		}
+
+			});
+			$(document).on('click',function(){
+				$('.search-suggtion').hide();
+			});
+			$(document).delegate('li','click',function(){
+				var text=$(this).text();
+				location.href='http://cn.bing.com/search?q='+text;
+			});
+		});
+	</script>
+</head>
+<body>
+	<div class="bg-div">
+	<div class="search-box">
+		<div class="logo"></div>
+	    <form action="https://www.bing.com/search" target="_blank" method="get" class="search-warp" id="search-warp">
+				<input class="search-input" id="search-input" type="text" name="q">
+				<input class="search-submit" type="submit" value=""/>
+		</form>
+	</div>
+	</div>
+	<div class="search-suggtion" id="search-suggtion"><ul id="search-ul"></ul></div>
+</body>
+</html>

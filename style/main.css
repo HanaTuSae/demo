@@ -20,7 +20,7 @@ ol,ul,li{list-style: none;list-style-type: none;}
 .feature_top{width:900px;height:50px;line-height:50px;background-image: url('../images/tit_tslm.png');padding-left:60px;background-repeat: no-repeat;margin:30px 0;}
 .feature_img{width:960px;height:128px;}
 .feature_img ul li{float:left;position: relative; cursor:pointer;}
-.feature_img ul li:not(:nth-of-type(6)){padding-right:38px;}
+.feature_img ul li:not(:nth-of-type(6)){margin-right:38px;}
 .feature_img ul li>div{width:120px;height:120px;border: 4px solid #d3d5db;-webkit-transform-style: preserve-3d;-webkit-backface-visibility: hidden;-webkit-transition: -webkit-transform .3s linear; -moz-transform-style: preserve-3d; -moz-backface-visibility: hidden; -moz-transition: -moz-transform .3s linear; -o-transform-style: preserve-3d; -o-backface-visibility: hidden; -o-transition: -moz-transform .3s linear;}
 .feature_img ul li img{width:120px;height:120px;}
 .front{z-index: 2;}

@@ -5,4 +5,4 @@
  * @version $Id$
  */
 
-myFocus.set({id:'banner',pattern: 'mF_tbhuatao',time: 3,trigger: 'mouseover',delay: 200,txtHeight: '0'});
+myFocus.set({id:'banner',pattern: 'mF_tbhuabao',time: 3,trigger: 'mouseover',delay: 200,txtHeight: '0'});
